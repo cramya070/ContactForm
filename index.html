@@ -60,7 +60,7 @@
           <span class="circle one"></span>
           <span class="circle two"></span>
 
-          <form action="index.html" autocomplete="off">
+          <form action="https://sheetdb.io/api/v1/km81tbcvsqjs2" method="post" id="contact-form">
             <h3 class="title">Contact us</h3>
             <div class="input-container">
               <input type="text" name="name" class="input" />
@@ -87,6 +87,21 @@
         </div>
       </div>
     </div>
+    <script>
+    </script>
+      var form = document.getElementById('contact-form');
+            form.addEventListener("submit", e => {
+              e.preventDefault();
+              fetch(form.action, {
+                  method : "POST",
+                  body: new FormData(document.getElementById("contact-form")),
+              }).then(
+                  response => response.json()
+              ).then((html) => {
+                // you can put any JS code here
+                alert('success')
+              });
+            });
 
     <script src="contact.js"></script>
   </body>
